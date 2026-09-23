@@ -1,0 +1,221 @@
+:root {
+  --fundo: #f4f8f5;
+  --verde: #12492c;
+  --verde-hover: #0e3a23;
+  --borda: #d8e5dc;
+  --texto: #162118;
+  --muted: #5a6b60;
+  --radius: 8px;
+  --erro: #9a2a2a;
+  --ok-bg: #e6f2ea;
+  --atencao-bg: #fdf3d7;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: Manrope, system-ui, sans-serif;
+  line-height: 1.5;
+}
+a {
+  color: inherit;
+}
+.topo {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.titulo {
+  font-family: Sora, Manrope, sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  margin: 6px 0 8px;
+  letter-spacing: -0.02em;
+  color: var(--texto);
+}
+.subtitulo {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 640px;
+}
+.shell {
+  max-width: 980px;
+  margin: 24px auto;
+  padding: 0 24px 32px;
+}
+.blocos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+@media (max-width: 760px) {
+  .blocos {
+    grid-template-columns: 1fr;
+  }
+}
+.bloco {
+  background: #fff;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius);
+  padding: 18px 18px 14px;
+}
+.bloco legend {
+  font-family: Sora, sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--verde);
+  padding: 0 6px;
+  margin-left: -6px;
+}
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.campo:last-child {
+  margin-bottom: 0;
+}
+.campo label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--texto);
+  letter-spacing: 0.01em;
+}
+.campo input {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  background: #fbfdfb;
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  color: var(--texto);
+  outline: none;
+}
+.campo input:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 3px rgba(18, 73, 44, 0.12);
+}
+.campo input:invalid {
+  border-color: #c9a6a6;
+}
+.resumo {
+  margin-top: 16px;
+  border: 1px solid var(--borda);
+  border-radius: var(--radius);
+  background: #fff;
+  padding: 14px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.resumo-texto {
+  font-size: 14px;
+  font-weight: 600;
+}
+.resumo-meta {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.selo {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border: 1px solid var(--borda);
+}
+.selo-ok {
+  background: var(--ok-bg);
+  color: var(--verde);
+  border-color: #b9d6c2;
+}
+.selo-atencao {
+  background: var(--atencao-bg);
+  color: #7a5a00;
+  border-color: #f0d99a;
+}
+.erro {
+  margin-top: 16px;
+  border: 1px solid #e6c2c2;
+  background: #fdf2f2;
+  color: var(--erro);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  font-size: 13px;
+}
+.acoes {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.btn {
+  appearance: none;
+  border-radius: 6px;
+  padding: 11px 16px;
+  font-family: Manrope, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1;
+  transition: 0.15s;
+}
+.btn-primario {
+  background: var(--verde);
+  color: #fff;
+  border: 1px solid var(--verde);
+}
+.btn-primario:hover {
+  background: var(--verde-hover);
+}
+.btn-secundario {
+  background: #fff;
+  color: var(--verde);
+  border: 1px solid var(--verde);
+}
+.btn-secundario:hover {
+  background: #eef5ef;
+}
+.rodape {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 18px 24px 28px;
+  border-top: 1px solid var(--borda);
+  color: var(--muted);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: auto;
+}
+@media (max-width: 760px) {
+  .rodape {
+    white-space: normal;
+  }
+}
