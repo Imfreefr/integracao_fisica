@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\ClassificadorQualidadeAgua;
@@ -46,18 +44,18 @@ function val(string $chave, array $padrao): string
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Laboratório Digital — Qualidade da Água • ODS 6</title>
+    <title>LaboratÃ³rio Digital â€” Qualidade da Ãgua â€¢ ODS 6</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header class="topo">
         <div class="eyebrow">ODS 6</div>
-        <h1 class="titulo">Laboratório Digital</h1>
-        <p class="subtitulo">Compare a qualidade da água antes e depois do filtro conforme a Portaria GM/MS 888/2021.</p>
+        <h1 class="titulo">LaboratÃ³rio Digital</h1>
+        <p class="subtitulo">Compare a qualidade da Ã¡gua antes e depois do filtro conforme a Portaria GM/MS 888/2021.</p>
     </header>
     <main class="shell">
         <form method="post" novalidate id="formulario">
@@ -68,7 +66,7 @@ function val(string $chave, array $padrao): string
                     <div class="campo"><label for="turb_antes">Turbidez (uT)</label><input id="turb_antes" name="turb_antes" type="number" step="any" inputmode="decimal" required value="<?= val('turb_antes', $valoresPadrao) ?>"></div>
                     <div class="campo"><label for="cloro_antes">Cloro (mg/L)</label><input id="cloro_antes" name="cloro_antes" type="number" step="any" inputmode="decimal" required value="<?= val('cloro_antes', $valoresPadrao) ?>"></div>
                     <div class="campo"><label for="dur_antes">Dureza (mg/L)</label><input id="dur_antes" name="dur_antes" type="number" step="any" inputmode="decimal" required value="<?= val('dur_antes', $valoresPadrao) ?>"></div>
-                    <div class="campo"><label for="temp_antes">Temperatura (°C)</label><input id="temp_antes" name="temp_antes" type="number" step="any" inputmode="decimal" required value="<?= val('temp_antes', $valoresPadrao) ?>"></div>
+                    <div class="campo"><label for="temp_antes">Temperatura (Â°C)</label><input id="temp_antes" name="temp_antes" type="number" step="any" inputmode="decimal" required value="<?= val('temp_antes', $valoresPadrao) ?>"></div>
                     <div class="campo"><label for="solidos_antes">TDS (mg/L)</label><input id="solidos_antes" name="solidos_antes" type="number" step="any" inputmode="decimal" required value="<?= val('solidos_antes', $valoresPadrao) ?>"></div>
                 </fieldset>
                 <fieldset class="bloco">
@@ -77,15 +75,15 @@ function val(string $chave, array $padrao): string
                     <div class="campo"><label for="turb_depois">Turbidez (uT)</label><input id="turb_depois" name="turb_depois" type="number" step="any" inputmode="decimal" required value="<?= val('turb_depois', $valoresPadrao) ?>"></div>
                     <div class="campo"><label for="cloro_depois">Cloro (mg/L)</label><input id="cloro_depois" name="cloro_depois" type="number" step="any" inputmode="decimal" required value="<?= val('cloro_depois', $valoresPadrao) ?>"></div>
                     <div class="campo"><label for="dur_depois">Dureza (mg/L)</label><input id="dur_depois" name="dur_depois" type="number" step="any" inputmode="decimal" required value="<?= val('dur_depois', $valoresPadrao) ?>"></div>
-                    <div class="campo"><label for="temp_depois">Temperatura (°C)</label><input id="temp_depois" name="temp_depois" type="number" step="any" inputmode="decimal" required value="<?= val('temp_depois', $valoresPadrao) ?>"></div>
+                    <div class="campo"><label for="temp_depois">Temperatura (Â°C)</label><input id="temp_depois" name="temp_depois" type="number" step="any" inputmode="decimal" required value="<?= val('temp_depois', $valoresPadrao) ?>"></div>
                     <div class="campo"><label for="solidos_depois">TDS (mg/L)</label><input id="solidos_depois" name="solidos_depois" type="number" step="any" inputmode="decimal" required value="<?= val('solidos_depois', $valoresPadrao) ?>"></div>
                 </fieldset>
             </div>
-            <?php if ($erro): ?><div class="erro" role="alert">Valor inválido — revise os campos e tente novamente. <span style="opacity:.8">(<?= htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') ?>)</span></div><?php endif; ?>
+            <?php if ($erro): ?><div class="erro" role="alert">Valor invÃ¡lido â€” revise os campos e tente novamente. <span style="opacity:.8">(<?= htmlspecialchars($erro, ENT_QUOTES, 'UTF-8') ?>)</span></div><?php endif; ?>
             <?php if ($resultado !== null && $erro === null): ?>
                 <section class="resumo" aria-live="polite">
-                    <div class="resumo-texto"><?= $conforme ? 'Água filtrada dentro dos parâmetros' : 'Água filtrada fora dos parâmetros' ?> <span class="selo <?= $conforme ? 'selo-ok' : 'selo-atencao' ?>"><?= $conforme ? 'Conforme' : 'Requer atenção' ?></span></div>
-                    <div class="resumo-meta"><span>Turbidez: <?= number_format((float)$reducaoTurbidez, 1, ',', '.') ?>% de redução</span><span>TDS: <?= number_format((float)$reducaoSolidos, 1, ',', '.') ?>% de redução</span></div>
+                    <div class="resumo-texto"><?= $conforme ? 'Ãgua filtrada dentro dos parÃ¢metros' : 'Ãgua filtrada fora dos parÃ¢metros' ?> <span class="selo <?= $conforme ? 'selo-ok' : 'selo-atencao' ?>"><?= $conforme ? 'Conforme' : 'Requer atenÃ§Ã£o' ?></span></div>
+                    <div class="resumo-meta"><span>Turbidez: <?= number_format((float)$reducaoTurbidez, 1, ',', '.') ?>% de reduÃ§Ã£o</span><span>TDS: <?= number_format((float)$reducaoSolidos, 1, ',', '.') ?>% de reduÃ§Ã£o</span></div>
                 </section>
             <?php endif; ?>
             <div class="acoes">
@@ -101,7 +99,7 @@ function val(string $chave, array $padrao): string
             </div>
         </form>
     </main>
-    <footer class="rodape">Referências: Portaria GM/MS 888/2021 · pH 6–9,5 · Turbidez ≤ 5 uT · Cloro 0,2–2 mg/L · Dureza ≤ 500 mg/L · TDS ≤ 500 mg/L.</footer>
+    <footer class="rodape">ReferÃªncias: Portaria GM/MS 888/2021 Â· pH 6â€“9,5 Â· Turbidez â‰¤ 5 uT Â· Cloro 0,2â€“2 mg/L Â· Dureza â‰¤ 500 mg/L Â· TDS â‰¤ 500 mg/L.</footer>
     <script src="js/app.js"></script>
 </body>
 
