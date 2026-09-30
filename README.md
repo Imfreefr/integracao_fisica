@@ -8,16 +8,8 @@ PHP >=8.3, Composer, Laravel Herd (ou `php -S localhost:8000 -t public`)
 composer install
 ```
 
-## Rodar
-Herd: aponte para `public` ou `php -S localhost:8000 -t public` e abra http://localhost:8000
-
 ## Algoritmos
 - `Medidor de Qualidade de Água`: pH 6-9.5, Turbidez ≤5 uT, Cloro 0.2-2, Dureza ≤500, TDS ≤500/1000, Temp ≤25/30. Fontes: Portaria GM/MS 888/2021, WHO GDWQ 4th.
-## Dataset real
-Substitua `data/samples.json` por medições reais de campo/lab. Nenhum dado fictício na entrega final.
-
-## Estrutura
-`src/WaterQualityClassifier.php` `src/Biofilter.php` `public/index.php` `tests/*`
 
 ## Uso de IA
 `Design e repaginação:` Uso do lovable para escolher a paleta de cores, organização dos elementos e como cada um dos dados deveria ser mostrado;
