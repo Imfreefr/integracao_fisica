@@ -200,3 +200,19 @@ body {
   white-space: nowrap;
   overflow: auto;
 }
+@media (max-width: 760px) {
+  .topo,
+  .shell,
+  .rodape {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .blocos {
+    grid-template-columns: 1fr;
+  }
+  .resumo {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

@@ -11,6 +11,11 @@ use Throwable;
 //controller da amostra de água 
 final class QualidadeAguaController
 {
+    private const CAMPOS = [
+        'ph_antes', 'turb_antes', 'cloro_antes', 'dur_antes', 'temp_antes', 'solidos_antes',
+        'ph_depois', 'turb_depois', 'cloro_depois', 'dur_depois', 'temp_depois', 'solidos_depois',
+    ];
+
     public function __construct(private readonly AmostraRepository $repositorio) {}
 
     public function formulario(array $entrada): array
@@ -37,8 +42,14 @@ final class QualidadeAguaController
 
     private function valoresFormulario(array $entrada): array
     {
-        $padroes = ['ph_antes' => 7, 'turb_antes' => 8, 'cloro_antes' => .1, 'dur_antes' => 400, 'temp_antes' => 26, 'solidos_antes' => 650, 'ph_depois' => 7.2, 'turb_depois' => 1.5, 'cloro_depois' => 1, 'dur_depois' => 250, 'temp_depois' => 23, 'solidos_depois' => 320];
-        return array_replace($padroes, array_map(static fn($valor) => $valor === '' ? null : (float) $valor, $entrada));
+        $valores = [];
+        foreach (self::CAMPOS as $campo) {
+            $valor = $entrada[$campo] ?? null;
+            $valores[$campo] = is_numeric($valor) && trim((string) $valor) !== ''
+                ? (float) $valor
+                : null;
+        }
+        return $valores;
     }
 
     private function amostra(array $valores, string $momento): array

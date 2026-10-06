@@ -8,7 +8,7 @@
   </testsuites>
   <source>
     <include>
-      <directory>src</directory>
+      <directory>src/Models</directory>
     </include>
   </source>
 </phpunit>

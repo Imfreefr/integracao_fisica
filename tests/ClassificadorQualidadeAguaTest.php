@@ -77,4 +77,18 @@ final class ClassificadorQualidadeAguaTest extends TestCase {
         $this->expectException(InvalidArgumentException::class);
         ClassificadorQualidadeAgua::avaliarAmostra(['ph' => 7]);
     }
+    public function testAvaliarCampoNulo(): void {
+        $this->expectException(InvalidArgumentException::class);
+        ClassificadorQualidadeAgua::avaliarAmostra([
+            'ph' => 7, 'turbidez' => 2, 'cloro' => null, 'dureza' => 200,
+            'temperatura' => 22, 'solidosTotais' => 300,
+        ]);
+    }
+    public function testAvaliarCampoNaoNumerico(): void {
+        $this->expectException(InvalidArgumentException::class);
+        ClassificadorQualidadeAgua::avaliarAmostra([
+            'ph' => 'sete', 'turbidez' => 2, 'cloro' => 1, 'dureza' => 200,
+            'temperatura' => 22, 'solidosTotais' => 300,
+        ]);
+    }
 }

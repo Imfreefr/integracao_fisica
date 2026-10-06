@@ -21,7 +21,7 @@ $assetPrefix = $GLOBALS['appAssetPrefix'] ?? 'src/';
 </head>
 <body>
     <header class="topo"><div class="eyebrow">ODS 6</div><h1 class="titulo">Laboratório Digital</h1><p class="subtitulo">Compare a qualidade da água antes e depois do filtro conforme a Portaria GM/MS 888/2021.</p></header>
-    <main class="shell"><form method="post" novalidate><div class="blocos">
+    <main class="shell"><form method="post"><div class="blocos">
         <fieldset class="bloco"><legend>Antes do filtro</legend><?php campo('ph_antes', 'pH', $valores); campo('turb_antes', 'Turbidez (uT)', $valores); campo('cloro_antes', 'Cloro (mg/L)', $valores); campo('dur_antes', 'Dureza (mg/L)', $valores); campo('temp_antes', 'Temperatura (°C)', $valores); campo('solidos_antes', 'TDS (mg/L)', $valores); ?></fieldset>
         <fieldset class="bloco"><legend>Depois do filtro</legend><?php campo('ph_depois', 'pH', $valores); campo('turb_depois', 'Turbidez (uT)', $valores); campo('cloro_depois', 'Cloro (mg/L)', $valores); campo('dur_depois', 'Dureza (mg/L)', $valores); campo('temp_depois', 'Temperatura (°C)', $valores); campo('solidos_depois', 'TDS (mg/L)', $valores); ?></fieldset>
     </div>

@@ -25,6 +25,7 @@ final class ClassificadorQualidadeAgua
     {
         if ($valor === null) throw new InvalidArgumentException('Cloro ausente');
         if ($valor < 0) throw new InvalidArgumentException('Cloro negativo');
+        if ($valor < .2) return self::resultado('cloro', $valor, 'nao_potavel', 'Não potável - abaixo do recomendado');
         if ($valor >= .2 && $valor <= 2) return self::resultado('cloro', $valor, 'potavel', 'Potável');
         if ($valor <= 5) return self::resultado('cloro', $valor, 'alerta', 'Alerta - acima do recomendado');
         return self::resultado('cloro', $valor, 'nao_potavel', 'Não potável');
@@ -58,7 +59,11 @@ final class ClassificadorQualidadeAgua
     public static function avaliarAmostra(array $dados): array
     {
         $obrigatorios = ['ph', 'turbidez', 'cloro', 'dureza', 'temperatura', 'solidosTotais'];
-        foreach ($obrigatorios as $chave) if (!array_key_exists($chave, $dados)) throw new InvalidArgumentException("Campo ausente: $chave");
+        foreach ($obrigatorios as $chave) {
+            if (!array_key_exists($chave, $dados) || $dados[$chave] === null || !is_numeric($dados[$chave])) {
+                throw new InvalidArgumentException("Campo ausente ou inválido: $chave");
+            }
+        }
         $parametros = [
             'ph' => self::classificarPh((float) $dados['ph']),
             'turbidez' => self::classificarTurbidez((float) $dados['turbidez']),

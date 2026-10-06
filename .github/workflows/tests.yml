@@ -1,0 +1,21 @@
+name: Testes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, dom, xml
+          coverage: xdebug
+      - run: composer install --no-interaction --prefer-dist
+      - run: vendor/bin/phpunit --testdox --coverage-text --coverage-clover coverage.xml
+      - name: Verificar cobertura mínima dos algoritmos
+        run: |
+          php -r '$xml = simplexml_load_file("coverage.xml"); $rate = (float) $xml->project->metrics["coveredstatements"] / max(1, (float) $xml->project->metrics["statements"]); if ($rate < 0.80) { fwrite(STDERR, "Cobertura abaixo de 80%: " . number_format($rate * 100, 2) . "%\n"); exit(1); } echo "Cobertura: " . number_format($rate * 100, 2) . "%\n";'

@@ -16,6 +16,9 @@ final class BiofiltroTest extends TestCase {
     public function testRemocaoZeroDepois(): void {
         $this->assertEqualsWithDelta(100.0, Biofiltro::taxaRemocao(10, 0), 0.001);
     }
+    public function testRemocaoIndicaPioraQuandoDepoisAumenta(): void {
+        $this->assertEqualsWithDelta(-50.0, Biofiltro::taxaRemocao(10, 15), 0.001);
+    }
     public function testRemocaoZeroAntesLancaExcecao(): void {
         $this->expectException(InvalidArgumentException::class);
         Biofiltro::taxaRemocao(0, 5);
