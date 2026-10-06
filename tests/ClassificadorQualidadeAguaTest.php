@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
 use PHPUnit\Framework\TestCase;
-use App\ClassificadorQualidadeAgua;
-
+use App\Models\ClassificadorQualidadeAgua;
+//Outra sessão de testes ana luisa dev
 final class ClassificadorQualidadeAguaTest extends TestCase {
     public function testPhFeliz(): void {
         $this->assertSame('potavel', ClassificadorQualidadeAgua::classificarPh(7.0)['situacao']);

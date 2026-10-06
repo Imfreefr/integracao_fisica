@@ -3,8 +3,9 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use App\Biofiltro;
+use App\Models\Biofiltro;
 
+//Testes do programa viu ana luisa dev
 final class BiofiltroTest extends TestCase {
     public function testRemocaoFeliz(): void {
         $this->assertEqualsWithDelta(80.0, Biofiltro::taxaRemocao(100, 20), 0.001);
@@ -59,8 +60,8 @@ final class BiofiltroTest extends TestCase {
         $depois = ['ph' => 7.2, 'turbidez' => 2, 'cloro' => 1.0, 'dureza' => 300, 'temperatura' => 24, 'solidosTotais' => 400];
         $eficiencia = Biofiltro::eficienciaGeral(['turbidez' => 8, 'solidosTotais' => 800], ['turbidez' => 2, 'solidosTotais' => 400]);
         $this->assertGreaterThan(0, $eficiencia['turbidez']);
-        $avaliacaoAntes = \App\ClassificadorQualidadeAgua::avaliarAmostra($antes);
-        $avaliacaoDepois = \App\ClassificadorQualidadeAgua::avaliarAmostra($depois);
+        $avaliacaoAntes = \App\Models\ClassificadorQualidadeAgua::avaliarAmostra($antes);
+        $avaliacaoDepois = \App\Models\ClassificadorQualidadeAgua::avaliarAmostra($depois);
         $this->assertSame('NAO_POTAVEL', $avaliacaoAntes['parecer']);
         $this->assertSame('POTAVEL', $avaliacaoDepois['parecer']);
     }
