@@ -45,7 +45,7 @@ As referências principais são a [Portaria GM/MS nº 888/2021](https://bvsms.sa
 
 ## Dataset
 
-O sistema grava os dados submetidos em `data/samples.json` e permite baixar um CSV pela interface. Antes da entrega, deve ser inserido nesse arquivo o dataset real coletado pela equipe, sem preencher a base com valores de exemplo ou dados inventados. O arquivo é ignorado pelo Git para evitar sobrescrever dados locais; o dataset final deve ser versionado ou entregue junto com o trabalho conforme a orientação do professor.
+O sistema grava os dados submetidos em `data/samples.json` e permite baixar um CSV pela interface. Antes da entrega, deve ser inserido nesse arquivo o dataset real coletado pela equipe, sem preencher a base com valores de exemplo ou dados inventados. O arquivo pode ser versionado junto com o trabalho conforme a orientação do professor.
 
 ## Estrutura
 

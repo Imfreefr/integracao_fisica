@@ -9,7 +9,6 @@ $resultado = $dados['resultado'];
 $erro = $dados['erro'];
 $eficiencia = $resultado['eficiencia'] ?? [];
 $conforme = ($resultado['avaliacaoDepois']['parecer'] ?? null) === 'POTAVEL';
-$assetPrefix = $GLOBALS['appAssetPrefix'] ?? 'src/';
 ?>
 <!doctype html>
 <html lang="pt-BR">
@@ -17,7 +16,7 @@ $assetPrefix = $GLOBALS['appAssetPrefix'] ?? 'src/';
     <meta charset="utf-8">
     <title>Laboratório Digital — Qualidade da Água • ODS 6</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="<?= e($assetPrefix) ?>css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
     <header class="topo"><div class="eyebrow">ODS 6</div><h1 class="titulo">Laboratório Digital</h1><p class="subtitulo">Compare a qualidade da água antes e depois do filtro conforme a Portaria GM/MS 888/2021.</p></header>
